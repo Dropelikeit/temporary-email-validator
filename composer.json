@@ -1,0 +1,37 @@
+{
+  "name": "marcel-strahl/order-laravel",
+  "description": "add temporary email address validator for laravel",
+  "keywords": ["laravel", "temporary email", "email", "temporary", "validator"],
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marcel Strahl",
+      "email": "info@marcel-strahl.de"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "illuminate/console": " ^5.5",
+    "illuminate/routing": " ^5.5",
+    "illuminate/support": " ^5.5",
+    "jprangenbergde/temporary-email-detection": "^1.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "~3.5",
+    "phpunit/phpunit": "^7.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "MarcelStrahl\\TemporaryValidator\\": "src/",
+      "MarcelStrahl\\TemporaryValidator\\Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "7.2"
+    },
+    "sort-packages": true,
+    "prefer-stable": true
+  }
+}
