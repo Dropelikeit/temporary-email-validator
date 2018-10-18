@@ -33,5 +33,12 @@
     },
     "sort-packages": true,
     "prefer-stable": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MarcelStrahl\\TemporaryValidator\\TemporaryValidatorServiceProvider"
+      ]
+    }
   }
 }
