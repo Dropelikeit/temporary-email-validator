@@ -17,3 +17,10 @@ Add the rule (it's the rule with the name not_temporary_email) like any other ru
 ```
 $rules = ['required|email|not_temporary_email']
 ```
+
+Hint:
+
+I am not the creator of the "Temporary Email Detection" but have changed the following package into a Laravel Validator rule!
+
+Tempory E-Mail Detection: 
+[https://github.com/jprangenbergde/temporary-email-detection](https://github.com/jprangenbergde/temporary-email-detection)
