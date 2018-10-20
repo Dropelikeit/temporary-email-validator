@@ -19,13 +19,14 @@ class ServiceProvider extends BaseServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/../translations', 'temporary-email-validator');
 
         Validator::extend('not_temporary_email', function ($attribute, $value, $parameters, $validator) {
+            /** @var IsNotAnTemporaryEmailAddress $rule */
             $rule = App::make(IsNotAnTemporaryEmailAddress::class);
             return $rule->passes($attribute, $value);
-        });
+        }, trans('temporary-email-validator::validation.is_temporary_email'));
     }
 
     public function register(): void
     {
-
+        //
     }
 }
