@@ -15,11 +15,7 @@ class ServiceProvider extends BaseServiceProvider
 {
     public function boot(): void
     {
-        $this->loadTranslationsFrom(__DIR__.'/../translations', 'temporary_validator');
-
-        $this->publishes([
-            __DIR__.'/../translations' => resource_path('lang/vendor/temporary_validator'),
-        ]);
+        $this->loadTranslationsFrom(__DIR__.'/../translations', 'validation');
 
         Validator::extend('not_temporary_email', function ($attribute, $value, $parameters, $validator) {
             return (new TemporaryValidator())->isTemporaryEmailAddress($value);
