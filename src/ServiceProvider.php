@@ -11,7 +11,7 @@ use MarcelStrahl\TemporaryValidator\Service\TemporaryValidator;
 /**
  * @author Marcel Strahl <info@marcel-strahl.de>
  */
-class TemporaryValidatorServiceProvider extends ServiceProvider
+class ServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
