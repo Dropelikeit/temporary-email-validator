@@ -1,5 +1,5 @@
 {
-  "name": "marcel-strahl/temporary-validator",
+  "name": "marcel-strahl/temporary-email-validator",
   "description": "add temporary email address validator for laravel",
   "keywords": ["laravel", "temporary email", "email", "temporary", "validator"],
   "minimum-stability": "stable",
