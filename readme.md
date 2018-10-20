@@ -7,8 +7,8 @@ Installation:
 composer install marcel-strahl/temporary-email-validator
 ```
 
+In versions from 5.3+ you don't need the following step, because we load our package with Discover in Laravel.
 Add the ServiceProvider to config/app.php
-
 ```php
 MarcelStrahl\TemporaryValidator\TemporaryValidatorServiceProvider::class,
 ```
