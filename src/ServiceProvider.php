@@ -6,7 +6,7 @@ namespace MarcelStrahl\TemporaryValidator;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Illuminate\Support\Facades\Validator;
-use MarcelStrahl\TemporaryValidator\Service\TemporaryValidator;
+use MarcelStrahl\TemporaryValidator\Rule\IsNotAnTemporaryEmailAddress;
 
 /**
  * @author Marcel Strahl <info@marcel-strahl.de>
@@ -15,10 +15,11 @@ class ServiceProvider extends BaseServiceProvider
 {
     public function boot(): void
     {
-        $this->loadTranslationsFrom(__DIR__.'/../translations', 'validation');
+        $this->loadTranslationsFrom(__DIR__.'/../translations', 'temporary-email-validator');
 
         Validator::extend('not_temporary_email', function ($attribute, $value, $parameters, $validator) {
-            return (new TemporaryValidator())->isTemporaryEmailAddress($value);
+            $rule = $this->app->get(IsNotAnTemporaryEmailAddress::class);
+            return $rule->passes($attribute, $value);
         });
     }
 
