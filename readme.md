@@ -3,18 +3,18 @@
 Installation:
 
 
-```
-composer update marcel-strahl/temporary-validator
+```php
+composer install marcel-strahl/temporary-email-validator
 ```
 
 Add the ServiceProvider to config/app.php
 
-```
+```php
 MarcelStrahl\TemporaryValidator\TemporaryValidatorServiceProvider::class,
 ```
 
 Add the rule (it's the rule with the name not_temporary_email) like any other rule in Laravel to the validator where you want to use it
-```
+```php
 $rules = ['required|email|not_temporary_email']
 ```
 
