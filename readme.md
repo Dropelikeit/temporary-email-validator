@@ -22,5 +22,6 @@ Hint:
 
 I am not the creator of the "Temporary Email Detection" but have changed the following package into a Laravel Validator rule!
 
-Tempory E-Mail Detection: 
+##Main Package 
+```Temporary E-Mail Detection```: 
 [https://github.com/jprangenbergde/temporary-email-detection](https://github.com/jprangenbergde/temporary-email-detection)
