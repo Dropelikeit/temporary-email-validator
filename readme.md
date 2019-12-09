@@ -4,7 +4,7 @@ Installation:
 
 
 ```php
-composer install marcel-strahl/temporary-email-validator
+composer require marcel-strahl/temporary-email-validator
 ```
 
 In versions from 5.3+ you don't need the following step, because we load our package with Discover in Laravel.
