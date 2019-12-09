@@ -11,15 +11,17 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
-    "illuminate/console": " ^5.5",
-    "illuminate/routing": " ^5.5",
-    "illuminate/support": " ^5.5",
+    "php": ">=7.3",
+    "illuminate/console": " ^6.6",
+    "illuminate/routing": " ^6.6",
+    "illuminate/support": " ^6.6",
     "jprangenbergde/temporary-email-detection": "^1.0"
   },
   "require-dev": {
-    "orchestra/testbench": "~3.5",
-    "phpunit/phpunit": "^7.3"
+    "friendsofphp/php-cs-fixer": "^2.16",
+    "orchestra/testbench": "~4.4",
+    "phpstan/phpstan": "^0.12.2",
+    "phpunit/phpunit": "^8.5"
   },
   "autoload": {
     "psr-4": {
@@ -29,10 +31,8 @@
   },
   "config": {
     "platform": {
-      "php": "7.2"
-    },
-    "sort-packages": true,
-    "prefer-stable": true
+      "php": "7.3"
+    }
   },
   "extra": {
     "laravel": {
@@ -40,5 +40,16 @@
         "MarcelStrahl\\TemporaryValidator\\ServiceProvider"
       ]
     }
+  },
+  "scripts": {
+    "cs-check": "php-cs-fixer -v --dry-run --using-cache=no fix",
+    "cs-fix": "php-cs-fixer --using-cache=no fix",
+    "analyze": "vendor/bin/phpstan analyze -c ./phpstan.neon.dist ./src ./translation --memory-limit=-1",
+    "lint": "parallel-lint --exclude vendor --exclude idea",
+    "check": [
+      "@analyze",
+      "@cs-check",
+      "@lint"
+    ]
   }
 }

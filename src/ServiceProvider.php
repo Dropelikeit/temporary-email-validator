@@ -22,7 +22,7 @@ class ServiceProvider extends BaseServiceProvider
             /** @var IsNotAnTemporaryEmailAddress $rule */
             $rule = App::make(IsNotAnTemporaryEmailAddress::class);
             return $rule->passes($attribute, $value);
-        }, trans('temporary-email-validator::validation.is_temporary_email'));
+        });
     }
 
     public function register(): void
