@@ -25,21 +25,27 @@ class IsNotAnTemporaryEmailAddress implements Rule
         $this->client = $clientFactory->factorize();
     }
 
-    public function passes($attribute, $value): bool
+    /**
+     * {@inheritDoc}
+     */
+    public function passes($attribute, $value)
     {
         try {
             $isTemporary = $this->client->isTemporary($value);
         } catch (TemporaryEmailDetectionException $exception) {
-            $this->logError( __FUNCTION__, $value, $exception->getMessage());
+            $this->logError(__FUNCTION__, $value, $exception->getMessage());
             return false;
         }
 
         return !$isTemporary;
     }
 
-    public function message(): string
+    /**
+     * {@inheritDoc}
+     */
+    public function message()
     {
-        trans('temporary-email-validator::validation.is_temporary_email');
+        return trans('temporary-email-validator::validation.is_temporary_email');
     }
 
     private function logError(string $functionName, string $email, string $exceptionMessage): void

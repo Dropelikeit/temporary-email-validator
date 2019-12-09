@@ -1,0 +1,11 @@
+parameters:
+  level: max
+  reportUnmatchedIgnoredErrors: true
+  fileExtensions:
+    - php
+  paths:
+    - src
+    - translations
+  inferPrivatePropertyTypeFromConstructor: true
+includes:
+  - phpstan-baseline.neon
