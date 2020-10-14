@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace MarcelStrahl\TemporaryValidator\Rule;
@@ -13,7 +12,7 @@ use TemporaryEmailDetection\Exception as TemporaryEmailDetectionException;
 /**
  * @author Marcel Strahl <info@marcel-strahl.de>
  */
-class IsNotAnTemporaryEmailAddress implements Rule
+final class IsNotAnTemporaryEmailAddress implements Rule
 {
     /**
      * @var Client
