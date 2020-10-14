@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace MarcelStrahl\TemporaryValidator;
@@ -12,13 +11,13 @@ use MarcelStrahl\TemporaryValidator\Rule\IsNotAnTemporaryEmailAddress;
 /**
  * @author Marcel Strahl <info@marcel-strahl.de>
  */
-class ServiceProvider extends BaseServiceProvider
+final class ServiceProvider extends BaseServiceProvider
 {
     public function boot(): void
     {
         $this->loadTranslationsFrom(__DIR__ . '/../translations', 'temporary-email-validator');
 
-        Validator::extend('not_temporary_email', function ($attribute, $value, $parameters, $validator) {
+        Validator::extend('not_temporary_email', function ($attribute, $value, $parameters, $validator): bool {
             /** @var IsNotAnTemporaryEmailAddress $rule */
             $rule = App::make(IsNotAnTemporaryEmailAddress::class);
             return $rule->passes($attribute, $value);
