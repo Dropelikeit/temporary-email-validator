@@ -11,26 +11,33 @@
     }
   ],
   "require": {
-    "php": ">=7.3",
-    "illuminate/console": "^8.10",
-    "illuminate/routing": "^8.10",
-    "illuminate/support": "^8.10",
-    "jprangenbergde/temporary-email-detection": "^1.0"
+    "php": ">=7.4|>=8.0",
+    "illuminate/console": "^6|^8.10",
+    "illuminate/routing": "^6|^8.10",
+    "illuminate/support": "^6|^8.10",
+    "jprangenbergde/temporary-email-detection": "^1.2"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.16",
-    "orchestra/testbench": "^6.2",
+    "orchestra/testbench": "^4|^6.18",
     "phpstan/phpstan": "^0.12.49",
-    "phpunit/phpunit": "^9.4"
+    "phpunit/phpunit": "^9.4",
+    "phpstan/phpstan-webmozart-assert": "^0.12.13",
+    "phpstan/phpstan-phpunit": "^0.12.20"
   },
   "autoload": {
     "psr-4": {
       "MarcelStrahl\\TemporaryValidator\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "MarcelStrahl\\TemporaryValidator\\Tests\\": "tests/"
+    }
+  },
   "config": {
     "platform": {
-      "php": "7.3"
+      "php": "7.4"
     }
   },
   "extra": {
@@ -43,7 +50,7 @@
   "scripts": {
     "cs-check": "php-cs-fixer -v --dry-run --using-cache=no fix",
     "cs-fix": "php-cs-fixer --using-cache=no fix",
-    "analyze": "vendor/bin/phpstan analyze -c ./phpstan.neon.dist ./src ./translation --memory-limit=-1",
+    "analyze": "vendor/bin/phpstan analyze -c ./phpstan.neon.dist ./src ./translations --memory-limit=-1",
     "lint": "parallel-lint --exclude vendor --exclude idea",
     "check": [
       "@analyze",
