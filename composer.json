@@ -51,11 +51,16 @@
     "cs-check": "php-cs-fixer -v --dry-run --using-cache=no fix",
     "cs-fix": "php-cs-fixer --using-cache=no fix",
     "analyze": "vendor/bin/phpstan analyze -c ./phpstan.neon.dist ./src ./translations --memory-limit=-1",
-    "lint": "parallel-lint --exclude vendor --exclude idea",
     "check": [
       "@analyze",
       "@cs-check",
       "@lint"
     ]
+  },
+  "scripts-descriptions": {
+    "cs-check": "Run coding standards checks.",
+    "cs-fix": "Automatically fix coding standard issues.",
+    "analyze": "run static code analysis (phpstan).",
+    "test": "Run unit tests."
   }
 }
