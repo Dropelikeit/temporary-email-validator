@@ -5,21 +5,21 @@ namespace MarcelStrahl\TemporaryValidator\Rule;
 
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Log;
-use TemporaryEmailDetection\Client;
-use TemporaryEmailDetection\ClientFactory;
+use TemporaryEmailDetection\ClientFactoryInterface;
+use TemporaryEmailDetection\ClientInterface;
 use TemporaryEmailDetection\Exception as TemporaryEmailDetectionException;
+use Webmozart\Assert\Assert;
 
 /**
  * @author Marcel Strahl <info@marcel-strahl.de>
  */
 final class IsNotAnTemporaryEmailAddress implements Rule
 {
-    /**
-     * @var Client
-     */
-    private $client;
+    private ClientInterface $client;
 
-    public function __construct(ClientFactory $clientFactory)
+    private string $email = '';
+
+    public function __construct(ClientFactoryInterface $clientFactory)
     {
         $this->client = $clientFactory->factorize();
     }
@@ -29,6 +29,7 @@ final class IsNotAnTemporaryEmailAddress implements Rule
      */
     public function passes($attribute, $value)
     {
+        $this->email = $value;
         try {
             $isTemporary = $this->client->isTemporary($value);
         } catch (TemporaryEmailDetectionException $exception) {
@@ -40,13 +41,24 @@ final class IsNotAnTemporaryEmailAddress implements Rule
     }
 
     /**
-     * {@inheritDoc}
+     * @psalm-return non-empty-string
      */
-    public function message()
+    public function message(): string
     {
-        return trans('temporary-email-validator::validation.is_temporary_email');
+        $message = trans('temporary-email-validator::validation.is_temporary_email', [
+            'email' => $this->email
+        ]);
+
+        Assert::stringNotEmpty($message);
+
+        return $message;
     }
 
+    /**
+     * @psalm-param non-empty-string $functionName
+     * @param string $email
+     * @psalm-param non-empty-string $exceptionMessage
+     */
     private function logError(string $functionName, string $email, string $exceptionMessage): void
     {
         $errorMessage =
