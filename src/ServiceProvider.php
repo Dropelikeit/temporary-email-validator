@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use MarcelStrahl\TemporaryValidator\Rule\IsNotAnTemporaryEmailAddress;
-use TemporaryEmailDetection\Client;
-use TemporaryEmailDetection\ClientInterface;
+use TemporaryEmailDetection\ClientFactory;
+use TemporaryEmailDetection\ClientFactoryInterface;
 
 /**
  * @author Marcel Strahl <info@marcel-strahl.de>
@@ -19,9 +19,8 @@ final class ServiceProvider extends BaseServiceProvider
     {
         $this->loadTranslationsFrom(__DIR__ . '/../translations', 'temporary-email-validator');
 
-        $app = $this->app;
-        $this->app->bind(ClientInterface::class, static function () use ($app): ClientInterface {
-            return new Client($app->get(\GuzzleHttp\ClientInterface::class));
+        $this->app->bind(ClientFactoryInterface::class, static function (): ClientFactoryInterface {
+            return new ClientFactory();
         });
 
         Validator::extend('not_temporary_email', function ($attribute, $value, $parameters, $validator): bool {
