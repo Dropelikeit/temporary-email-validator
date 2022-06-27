@@ -133,4 +133,18 @@ final class IsNotAnTemporaryEmailAddressTest extends TestCase
 
         $this->assertFalse($isValid);
     }
+
+    /**
+     * @test
+     */
+    public function canHandleEmptyEmail(): void
+    {
+        $clientFactory = new ClientFactory();
+
+        $validatorRule = new IsNotAnTemporaryEmailAddress($clientFactory);
+
+        $isValid = $validatorRule->passes('email', '');
+
+        $this->assertFalse($isValid);
+    }
 }
