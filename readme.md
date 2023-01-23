@@ -1,9 +1,13 @@
 ### Recognition of temporary e-mail addresses as validator rule for Laravel
 
-[![Latest Stable Version](http://poser.pugx.org/marcel-strahl/temporary-email-validator/v)](https://packagist.org/packages/marcel-strahl/temporary-email-validator) [![Total Downloads](http://poser.pugx.org/marcel-strahl/temporary-email-validator/downloads)](https://packagist.org/packages/marcel-strahl/temporary-email-validator) [![Latest Unstable Version](http://poser.pugx.org/marcel-strahl/temporary-email-validator/v/unstable)](https://packagist.org/packages/marcel-strahl/temporary-email-validator) [![License](http://poser.pugx.org/marcel-strahl/temporary-email-validator/license)](https://packagist.org/packages/marcel-strahl/temporary-email-validator)
+![Gitworkflow](https://github.com/Dropelikeit/temporary-email-validator/actions/workflows/ci.yml/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/Dropelikeit/temporary-email-detection/badge.svg?branch=master)](https://coveralls.io/github/Dropelikeit/temporary-email-detection?branch=master)
+[![Latest Stable Version](http://poser.pugx.org/marcel-strahl/temporary-email-validator/v)](https://packagist.org/packages/marcel-strahl/temporary-email-validator)
+[![Total Downloads](http://poser.pugx.org/marcel-strahl/temporary-email-validator/downloads)](https://packagist.org/packages/marcel-strahl/temporary-email-validator)
+[![Latest Unstable Version](http://poser.pugx.org/marcel-strahl/temporary-email-validator/v/unstable)](https://packagist.org/packages/marcel-strahl/temporary-email-validator)
+[![License](http://poser.pugx.org/marcel-strahl/temporary-email-validator/license)](https://packagist.org/packages/marcel-strahl/temporary-email-validator)
 [![composer.lock](http://poser.pugx.org/marcel-strahl/temporary-email-validator/composerlock)](https://packagist.org/packages/marcel-strahl/temporary-email-validator)
 [![License](http://poser.pugx.org/marcel-strahl/temporary-email-validator/license)](https://packagist.org/packages/marcel-strahl/temporary-email-validator)
-![Gitworkflow](https://github.com/Dropelikeit/temporary-email-validator/actions/workflows/ci.yml/badge.svg)
 
 Installation:
 
