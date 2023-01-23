@@ -114,7 +114,7 @@ jobs:
           php-coveralls --coverage_clover=build/output/tests/coverage.xml --json_path=build/output/tests/coveralls-upload.json -v
 
       - name: "Run PHP CS Check"
-        run: "composer cs-check"
+        run: "PHP_CS_FIXER_IGNORE_ENV=1 composer cs-check"
 
       - name: "Run PHPStan"
         run: "composer analyze"
