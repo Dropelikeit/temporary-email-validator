@@ -17,7 +17,6 @@ use Webmozart\Assert\Assert;
 final class IsNotAnTemporaryEmailAddress implements Rule
 {
     private ClientInterface $client;
-
     private string $email;
 
     public function __construct(ClientFactoryInterface $clientFactory)
@@ -72,7 +71,7 @@ final class IsNotAnTemporaryEmailAddress implements Rule
     private function logError(string $functionName, string $email, string $exceptionMessage): void
     {
         $errorMessage =
-            sprintf('%s catched an error with Value %s : %s', $functionName, $email, $exceptionMessage);
+            sprintf('%s has caught an error with value %s : %s', $functionName, $email, $exceptionMessage);
         Log::error($errorMessage);
     }
 }

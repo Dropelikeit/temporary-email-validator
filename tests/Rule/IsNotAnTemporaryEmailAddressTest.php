@@ -31,7 +31,10 @@ final class IsNotAnTemporaryEmailAddressTest extends TestCase
     {
         parent::setUp();
 
-        $this->app->singleton('Validator', static function () {
+        $app = $this->app;
+        assert($app !== null);
+
+        $app->singleton('Validator', static function () {
             $translator = new Translator(new ArrayLoader(), 'en');
 
             $validator = new \Illuminate\Validation\Validator($translator, [], []);
@@ -112,7 +115,7 @@ final class IsNotAnTemporaryEmailAddressTest extends TestCase
 
         Log::shouldReceive('error')
             ->once()
-            ->with('passes catched an error with Value info@marcel-strahl.de : some error');
+            ->with('passes has caught an error with value info@marcel-strahl.de : some error');
 
         $client = $this->createMock(ClientInterface::class);
         $client

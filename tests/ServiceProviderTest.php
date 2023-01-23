@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace MarcelStrahl\TemporaryValidator\Tests;
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Lang;
 use MarcelStrahl\TemporaryValidator\ServiceProvider;
 use Orchestra\Testbench\TestCase;
@@ -12,16 +13,8 @@ use Orchestra\Testbench\TestCase;
  */
 final class ServiceProviderTest extends TestCase
 {
-    public function setUp(): void
-    {
-        parent::setUp();
-        // additional setup
-    }
-
     /**
-     * @param \Illuminate\Foundation\Application $app
-     *
-     * @return string[]
+     * @return array<int, class-string>
      */
     protected function getPackageProviders($app): array
     {
@@ -35,8 +28,11 @@ final class ServiceProviderTest extends TestCase
      */
     public function hasProviderLoaded(): void
     {
+        $app = $this->app;
+        $this->assertNotNull($app);
+
         $this->assertTrue(
-            $this->app->providerIsLoaded(ServiceProvider::class),
+            $app->providerIsLoaded(ServiceProvider::class),
         );
     }
 
